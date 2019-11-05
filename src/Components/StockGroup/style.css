@@ -1,0 +1,219 @@
+div.stockGroup {
+    margin-top: 10px;
+    background-color: white;
+    height: 300px;
+    width: 500px; 
+    display: grid;
+    grid-template-columns: repeat(10, 50px);
+    grid-template-rows: 20% 30% 30% 20%;
+    grid-template-areas: 
+        "nameSpace nameSpace nameSpace nameSpace profitSpace profitSpace profitSpace profitSpace profitSpace profitSpace"
+        "amountSpace amountSpace mvSpace mvSpace mvSpace mvSpace mvSpace mbSpace mbSpace mbSpace"
+        "moneySpace moneySpace moneySpace moneySpace moneySpace moneySpace apSpace apSpace apSpace apSpace"
+        "llSpace llSpace llSpace llSpace llSpace llSpace llSpace llSpace llSpace llSpace";
+    grid-gap: 0px;
+}
+
+.nameSpace{
+    grid-area: nameSpace;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    justify-self: start;
+    align-self: center;
+    font-weight: bold;
+    font-size: 27px;
+    border: solid 2px black;
+}
+
+.nameSpace div {
+    position: relative;
+    top: 13px;
+    left: 13px;
+}
+
+
+.profitSpace {
+    border: solid 2px black;
+    grid-area: profitSpace;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    justify-self: center;
+    align-self: center;
+    font-size: 30px;
+    display: grid;
+}
+
+.profitSpace div {
+    justify-self: center;
+    align-self: center;
+    font-weight: bold;
+}
+
+.amountSpace {
+    border: solid 2px black;
+    grid-area: amountSpace;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.amountSpace label {
+    padding: 5px;
+    font-size: 10px;
+    color: #555;
+}
+
+.amountSpace div {
+    font-size: 35px;
+    align-self: center;
+    margin-top: 8px;
+}
+
+.marketValuesSpace {
+    border: solid 2px black;
+    grid-area: mvSpace;
+    display: grid;
+    background-color: white;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 10% 40% 10% 40%;
+    grid-template-areas: 
+    "title min"
+    ". price1"
+    "max ."
+    "price2 ."
+    ;
+    padding: 5px;
+}
+
+.MVSpace-price1 {
+    grid-area: price1;
+    font-size: 30px;
+}
+
+.MVSpace-price2 {
+    grid-area: price2;
+    font-size: 30px;
+}
+
+.titleMVSpace {
+    grid-area: title;
+
+}
+
+.marketValuesSpace label {
+    font-size: 10px;
+    color: #555;
+}
+
+.maxBoughtSpace {
+    grid-area: mbSpace;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    border: solid 2px black;
+}
+
+.maxBoughtSpace label {
+    font-size: 10px;
+    color: #555;
+}
+
+.maxBoughtSpace div {
+    font-size: 30px;
+    margin-top: 15px;
+}
+
+.moneySpace {
+    grid-area: moneySpace;
+    border: solid 2px black;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.moneySpace label {
+    color: #555;
+    font-size: 10px;
+}
+
+.moneySpace div {
+    font-size: 30px;
+    margin-top: 10px;
+    align-self: center;
+    font-weight: bold;
+}
+
+.avaragePriceSpace {
+    grid-area: apSpace;
+    padding: 5px;
+    border: solid 2px black;
+    display: flex;
+    flex-direction: column;
+}
+
+.avaragePriceSpace label {
+    font-size: 10px;
+    color: #555;
+}
+
+.avaragePriceSpace div {
+    font-size: 30px;
+    margin-top: 10px;
+    align-self: center;
+}
+
+.lastLineSpace {
+    grid-area: llSpace;
+    display: flex;
+    padding: 5px;
+    border: solid 2px black;
+}
+
+.lastLineSpace div {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 10;
+}
+
+.lastLineSpace div > label {
+    color: #555;
+    font-size: 10px;
+}
+
+.lastLineSpace div > div{
+    font-size: 30px;
+}
+
+.lastLineSpace button {
+    border: 0;
+    background-color: #f05a5b;
+    cursor: pointer;
+    color: white;
+    height: 30px;
+    align-self: center;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 2px;
+    width: 120px;
+}
+
+.lastLineSpace button:hover {
+    background-color: #e14f50;
+}
+
+
+label.min {
+    color: rgb(34, 177, 76);
+    grid-area: min;
+    font-weight: bold;
+}
+
+label.max {
+    color: red;
+    grid-area: max;
+    font-weight: bold;
+}

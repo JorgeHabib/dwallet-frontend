@@ -1,0 +1,91 @@
+div.containerProfile {
+    margin: 80px auto 0px;
+    max-width: 1300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul.stock-list {
+    width: 100%;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    margin-bottom: 30px;
+}
+
+ul.stock-list li {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons {
+    line-height: 30px;
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.updateButton {
+    flex-grow: 10;
+}
+
+.updateStyle {
+    width: 150px;
+    border: 0px;
+    border-radius: 3px;
+    padding: 0 25px;
+    height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #f05a5b;
+    color: white;
+    cursor: pointer;
+}
+
+.buyStyle {
+    width: 120px;
+    border: 0px;
+    border-radius: 2px;
+    padding: 0 20px;
+    height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #f05a5b;
+    color: white;
+    cursor: pointer;
+}
+
+.sellStyle {
+    margin-left: 20px;
+    width: 120px;
+    border: solid 1px #f05a5b;
+    border-radius: 2px;
+    padding: 0 20px;
+    height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: white;
+    color: #f05a5b;
+    cursor: pointer;
+}
+
+.buyStyle:hover {
+  background-color: #e14f50;
+}
+
+.sellStyle:hover {
+    background-color: #EEE;
+    color: #fd0404;
+    border: solid 1px #fd0404; 
+}
+
+.updateStyle img {
+    width: 10px;
+    margin-right: 5px;
+}
+
+.updateStyle:hover {
+    background-color: #ca1717;
+}

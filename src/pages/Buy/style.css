@@ -1,0 +1,55 @@
+div.containerBuy {
+    max-width: 600px;
+    width: 100%;
+    margin: 80px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+    width: 90%;
+}
+
+.stockInfo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.indStock {
+    display: flex;
+    flex-direction: column;
+}
+.content form > p {
+    color: #555;
+    font-size: 15px;
+    margin-bottom: 23px;
+}
+
+.dntReload label {
+    margin-top: -10px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.dntReload label div {
+    width: 100%;
+    margin-left: 7px;
+}
+.dntReload label input {
+    padding: 0;
+    margin: 0;
+    vertical-align: center;
+    position: relative;
+    top: 1px;
+    overflow: hidden;
+}
+
+
