@@ -81,20 +81,25 @@ div.stockGroup {
     grid-template-columns: 50% 50%;
     grid-template-rows: 10% 40% 10% 40%;
     grid-template-areas: 
-    "title min"
-    ". price1"
-    "max ."
-    "price2 ."
+    "title max"
+    ". price2"
+    "min ."
+    "price1 ."
     ;
     padding: 5px;
 }
 
 .MVSpace-price1 {
+    position: relative;
+    right: 1px;
     grid-area: price1;
     font-size: 30px;
 }
 
 .MVSpace-price2 {
+    position: relative;
+    right: 10px;
+    margin-right: 1px;
     grid-area: price2;
     font-size: 30px;
 }
@@ -153,6 +158,7 @@ div.stockGroup {
     border: solid 2px black;
     display: flex;
     flex-direction: column;
+    background-color: rgba(254, 189, 2, 0.7);
 }
 
 .avaragePriceSpace label {
@@ -207,13 +213,13 @@ div.stockGroup {
 
 
 label.min {
-    color: rgb(34, 177, 76);
+    color: red;
     grid-area: min;
     font-weight: bold;
 }
 
 label.max {
-    color: red;
+    color: rgb(34, 177, 76);
     grid-area: max;
     font-weight: bold;
 }
