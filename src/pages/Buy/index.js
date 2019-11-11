@@ -3,7 +3,7 @@ import './style.css';
 import api from '../../services/api';
 
 export default function Buy({ history }) {
-    const user_id = localStorage.getItem('user');
+    const userId = localStorage.getItem('dwalletToken');
 
     const [amount, setAmount] = useState(0);
     const [price, setPrice] = useState(0);
@@ -15,10 +15,14 @@ export default function Buy({ history }) {
 
         await api.post('/stocks/new', {
             name: name.toUpperCase(), amount: parseInt(amount), price: Number(price)
-        }, { headers: { user_id } })
+        }, { headers: { authorization: 'Bearer ' + userId } })
 
         if (!dntReload) {
             history.push('/profile')
+        }else{
+            setName('');
+            setPrice(0);
+            setAmount(0);
         }
     }
 
@@ -36,6 +40,7 @@ export default function Buy({ history }) {
                         id="name"
                         placeholder="Insira o nome da ação..."
                         onChange= {e => setName(e.target.value)}
+                        value={name}
                     />
 
                 <div className="stockInfo">
@@ -46,6 +51,7 @@ export default function Buy({ history }) {
                             id="amount"
                             placeholder="Número de papeis..."
                             onChange= {e => setAmount(e.target.value)}
+                            value={amount}
                         />
                     </div>
 
@@ -57,6 +63,7 @@ export default function Buy({ history }) {
                             step="0.001"
                             placeholder="Preço da unidade..."
                             onChange= {e => setPrice(e.target.value)}
+                            value={price}
                         />
                     </div>
                 </div>

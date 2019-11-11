@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
-import api from '../../services/api'
+import api from '../../services/api';
 
 export default function Login({ history }) {
     const [email, setEmail] = useState('');
-    const [name, setName] = useState('');
+    const [password, setPassword] = useState('');
     
     async function handleSubmit(e) {
       e.preventDefault();
   
-      const response = await api.post('/sessions', {
-        name,
+      const response = await api.post('/sessions/authenticate', {
+        password,
         email
       })
-  
-      const { _id } = response.data;
-  
-      localStorage.setItem('user', _id);
+      
+      if (response.data.error) {
+        alert(response.data.error);
+      }else{
+        const { token } = response.data;
 
-      history.push('/profile')
+        localStorage.setItem('dwalletToken', token);
+  
+        history.push('/profile')
+      }
     }
 
     return (
@@ -28,24 +32,25 @@ export default function Login({ history }) {
                 <p>Visualize e armazene <strong>ações</strong> da sua carteira de maneira <strong>fácil</strong> e <strong>rápida</strong>!</p>
 
                 <form onSubmit = {handleSubmit}>
-                <label htmlFor="name">Nome *</label>
-                <input 
-                    type="text" 
-                    id="name" 
-                    placeholder="Seu nome..."
-                    onChange = {e => setName(e.target.value)}
-                />
-
-                <label htmlFor="email">E-mail *</label>
+                <label htmlFor="email">Email *</label>
                 <input 
                     type="email" 
                     id="email" 
-                    placeholder="Seu e-mail..."
+                    placeholder="Seu email..."
                     onChange = {e => setEmail(e.target.value)}
+                />
+
+                <label htmlFor="password">Senha *</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    placeholder="Sua senha..."
+                    onChange = {e => setPassword(e.target.value)}
                 />
 
                 <button className="btn" type="submit">Entrar</button>
                 </form>
+                <button className='btn2' onClick = {() => history.push('/register') }>Cadastrar</button>
             </div>
         </div>
     )

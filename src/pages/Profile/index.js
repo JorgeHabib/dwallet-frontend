@@ -9,11 +9,27 @@ export default function Dashboard({ history }) {
     const [stocks, setStocks] = useState([]);
     const [updating, setUpdating] = useState(true);
 
+    function renderThis() {
+        if (stocks.length !== 0){
+            const returnedArray =     
+                stocks.map(stock => {
+                    return (
+                        <li key={stock._id}>
+                            <StockGroup stock={stock} history={history}/>
+                        </li>)
+                })
+            
+            return (<ul className="stock-list"> {returnedArray} </ul>);
+        }else{
+            return (<p className='warning'>Você ainda não possui ações! Clique em <strong>Buy</strong> para compra-las!</p>);
+        }
+    }
+
     async function handleUpdate() {
-        const user_id = localStorage.getItem('user');
+        const userId = localStorage.getItem('dwalletToken');
 
         await api.put('/profile/update', {  } ,{
-            headers: { user_id }
+            headers: { authorization: 'Bearer ' + userId }
         });
 
         setUpdating(!updating);
@@ -29,10 +45,10 @@ export default function Dashboard({ history }) {
 
     useEffect(() => {
         async function loadStocks() {
-            const user_id = localStorage.getItem('user');
+            const userId = localStorage.getItem('dwalletToken');
 
             const response = await api.get('/profile/show', {
-                headers: { user_id }
+                headers: { authorization: 'Bearer ' + userId }
             });
 
             setStocks(response.data);
@@ -59,14 +75,10 @@ export default function Dashboard({ history }) {
                     </div>
                 </div>
 
-                <ul className="stock-list">
-                    { stocks.map(stock => {
-                        return (
-                        <li key={stock._id}>
-                            <StockGroup stock={stock} history={history}/>
-                        </li>)
-                    })}
-                </ul>
+                {
+                    renderThis()
+                }
+
             </div>
         </div>
     )

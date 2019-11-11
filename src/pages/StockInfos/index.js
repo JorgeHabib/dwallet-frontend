@@ -11,17 +11,17 @@ export default function StockDetail({ match }) {
     
     useEffect(() => {
         async function loadBuys() {
-            const user_id = localStorage.getItem('user');
+            const userId = localStorage.getItem('dwalletToken');
 
             const _buys = await api.get(`/stocks?stock_name=${name}`, {
                 headers: {
-                    user_id
+                    authorization: 'Bearer ' + userId
                 }
             })
 
             const _sells = await api.get(`/sell?stock_name=${name}`, {
                 headers: {
-                    user_id
+                    authorization: 'Bearer ' + userId
                 }
             })
 

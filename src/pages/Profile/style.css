@@ -89,3 +89,9 @@ ul.stock-list li {
 .updateStyle:hover {
     background-color: #ca1717;
 }
+p.warning {
+    font-size: 22px;
+    color: #555;
+    margin-top: 50px;
+    text-align: center;
+}

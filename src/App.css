@@ -84,5 +84,18 @@ body, input, button {
 
 .content button.btn:hover {
   background-color: #e14f50;
-  
+}
+
+button.btn2 {
+  margin-top: 9px;
+  border: 1px solid #f05a5b;
+  border-radius: 2px;
+  width: 100%;
+  padding: 0 20px;
+  height: 42px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: white;
+  cursor: pointer;
+  color: #f05a5b;
 }
