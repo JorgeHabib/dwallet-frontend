@@ -1,0 +1,67 @@
+div.containerSwing {
+    margin: 80px auto 0px;
+    max-width: 1300px;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.backStyle {
+    width: 120px;
+    border: 0px;
+    border-radius: 2px;
+    padding: 0 20px;
+    height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #f05a5b;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.backStyle:hover {
+    background-color: #e14f50;
+}
+
+.buttonBar {
+    height: 30px;
+    display: flex;
+}
+
+.addRegion {
+    margin-left: auto;
+}
+
+.addRegion input {
+    height: 30px;
+    width: 120px;
+    margin-right: 10px;
+    border: solid 1px #DDD;
+    padding: 5px;
+}
+
+.addStyle {
+    border: solid 1px #f05a5b;
+    color: #f05a5b;
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: 0.5s;
+    border-radius: 10px;
+}
+
+.addStyle:hover {
+    background-color: #f05a5b;
+}
+
+.addStyle img {
+    width: 15px;
+}
+
+.SwingList {
+    margin-top: 40px;
+    display: flex;
+    overflow: auto;
+}

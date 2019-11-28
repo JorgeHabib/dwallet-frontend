@@ -25,13 +25,18 @@ export default function Buy({ history }) {
             setAmount(0);
         }
     }
+    
+    function handleBack() {
+        history.push('/profile');
+    }
 
     return (
         <div className="containerBuy">
             <div className='logo'>D-Wallet</div>
 
             <div className="content">
-                <p>Insira as informações acerca de sua <strong>compra</strong></p>
+                <button onClick={handleBack} className = "backStyle">Voltar</button>
+                <p style= { {marginTop: 20} }>Insira as informações acerca de sua <strong>compra</strong></p>
 
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="name">Nome da ação:</label>

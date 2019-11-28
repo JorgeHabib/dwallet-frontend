@@ -8,15 +8,34 @@ import StockGroup from '../../Components/StockGroup';
 export default function Dashboard({ history }) {
     const [stocks, setStocks] = useState([]);
     const [updating, setUpdating] = useState(true);
+    const [clock, setClock] = useState(false);
+    const [myTimer, setMyTimer] = useState(0);
 
-    function renderThis() {
+    // function printClock() {
+    //     if (clock) {
+    //         return (<div className='timeElapsed'> { clock } </div>);
+    //     }else{
+    //         return (<></>);
+    //     }
+    // }
+
+    function getUpdateStyle() {
+        if (clock) {
+            return "updateStyleNotReady";
+        }else{
+            return "updateStyleReady";
+        }
+    }
+
+    function renderStocks() {
         if (stocks.length !== 0){
             const returnedArray =     
                 stocks.map(stock => {
-                    return (
+                    if (stock.amount)
+                    {return (
                         <li key={stock._id}>
                             <StockGroup stock={stock} history={history}/>
-                        </li>)
+                        </li>)}
                 })
             
             return (<ul className="stock-list"> {returnedArray} </ul>);
@@ -33,14 +52,20 @@ export default function Dashboard({ history }) {
         });
 
         setUpdating(!updating);
+        setClock(false);
+        setMyTimer(Date.now());
+    }
+
+    function handleSwing() {
+        history.push('/swing');
     }
 
     function handleBuy(e) {
-        history.push('/stocks/buy')
+        history.push('/stocks/buy');
     }
 
     function handleSell(e) {
-        history.push('/stocks/sell')
+        history.push('/stocks/sell');
     }
 
     useEffect(() => {
@@ -57,6 +82,14 @@ export default function Dashboard({ history }) {
         loadStocks();
     }, [updating]);
 
+    // useEffect(() => {
+    //     while (Date.now() - myTimer < 1000) {
+    //         console.log(myTimer, Date.now());
+    //     } 
+    //     setClock(false);
+
+    // }, [myTimer]);
+
     return (
         <div className = "containerProfile">
         <div className='logo'>D-Wallet</div>
@@ -65,26 +98,26 @@ export default function Dashboard({ history }) {
 
                 <div className='buttons'>
                     <div className='updateButton'>
-                        <button onClick={handleUpdate} className="updateStyle">
-                            <img src={reload} alt="reload"/> Update</button>
+                        <button onClick={handleUpdate} className={getUpdateStyle()}>
+                            <img src={reload} alt="reload"/> 
+                        Update</button>
+
+                        {/* { printClock() } */}
+                        
                     </div>
-                    
+
                     <div className='operationButtons'>
+                        <button onClick={handleSwing} className="swingStyle">Swing</button>
                         <button onClick={handleBuy} className="buyStyle">Buy</button>
                         <button onClick={handleSell} className="sellStyle">Sell</button>
                     </div>
                 </div>
 
                 {
-                    renderThis()
+                    renderStocks()
                 }
 
             </div>
         </div>
     )
 }
-
-/*
-
-
-*/

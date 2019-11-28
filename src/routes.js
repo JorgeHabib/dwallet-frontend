@@ -7,6 +7,7 @@ import Sell from './pages/Sell';
 import Buy from './pages/Buy';
 import StockDetail from './pages/StockInfos';
 import SignUp from './pages/SignUp';
+import Swing from './pages/Swing';
 
 import PrivateRoute from './privateRoute';
 
@@ -21,6 +22,7 @@ export default function Routes() {
                 <PrivateRoute path='/stocks/buy' exact component={Buy}/>
                 <PrivateRoute path='/stocks/sell' exact component={Sell}/>
                 <PrivateRoute path='/stocks/:name' component={StockDetail}/>
+                <PrivateRoute path='/swing' exact component={Swing}/>
             </Switch>
         </BrowserRouter>
     )

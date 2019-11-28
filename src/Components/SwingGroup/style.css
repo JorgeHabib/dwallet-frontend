@@ -1,0 +1,161 @@
+.SwingGroup {
+    width: 350px;;
+    height: 380px;
+    background-color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: solid 2px black;
+}
+
+.SwingGroup {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+    "name  name market market"
+    "amount amount avarage avarage"
+    "profit profit buttons buttons"
+}
+
+.SwingName {
+    grid-area: name;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 36px;
+    font-weight: bold;
+    border: solid 2px black;
+}
+
+.swing_market {
+    grid-area: market;
+    width: 100%;
+    border: solid 2px black;
+}
+
+.swing_market div {
+    margin-top: 5px;
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+}
+
+.swing_market input {
+    border: 0;
+    width: 100%;
+    line-height: 60px;
+    font-size: 30px;
+    padding: 10px;
+}
+
+.swing_amount {
+    grid-area: amount;
+    width: 100%;
+    border: solid 2px black;
+}
+
+.swing_amount div {
+    margin-top: 5px;
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+}
+
+.swing_amount input {
+    border: 0;
+    width: 100%;
+    line-height: 60px;
+    font-size: 30px;
+    padding: 10px;
+}
+
+.swing_avarage {
+    grid-area: avarage;
+    width: 100%;
+    border: solid 2px black;
+}
+
+.swing_avarage div {
+    margin-top: 5px;
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+}
+
+.swing_avarage input {
+    border: 0;
+    width: 100%;
+    line-height: 60px;
+    font-size: 30px;
+    padding: 10px;
+}
+
+.swing_profit {
+    grid-area: profit;
+    width: 100%;
+    border: solid 2px black;
+}
+
+.swing_profit div {
+    margin-top: 5px;
+    text-align: center;
+    font-size: 12px;
+    color: white;
+}
+
+.swing_profit input {
+    border: 0;
+    width: 100%;
+    line-height: 60px;
+    font-size: 30px;
+    padding: 10px;
+}
+
+.swing_buttons {
+    grid-area: buttons;
+}
+
+.swing_buttons {
+    border: solid 2px black;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.swing_delete img {
+    width: 20px;
+}
+
+.swing_save {
+    border: 0;
+    background-color: #f05a5b;
+    border-radius: 4px;
+    margin-top: 10px;
+    width: 90%;
+    margin-left: 8px;
+    cursor: pointer;
+    height: 30px;
+    color: white;
+    transition: 0.4s;
+}
+.swing_save:hover {
+    background-color: white;
+    border: solid 1px #f05a5b;
+    color: #f05a5b;
+}
+
+.swing_delete {
+    border: solid 1px #f05a5b;
+    background: white;
+    width: 90%;
+    margin-top: 40px;
+    margin-left: 8px;
+    cursor: pointer;
+    height: 30px;
+    transition: 3s;
+}
+
+.swing_delete:hover {
+    background-color: #333;
+}

@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "AlarmClock";
+    src: url('../../assets/clockFont.ttf');
+}
+
 div.containerProfile {
     margin: 80px auto 0px;
     max-width: 1300px;
@@ -28,10 +33,24 @@ ul.stock-list li {
 }
 
 .updateButton {
-    flex-grow: 10;
+    flex-grow: 4;
+    display: flex;
 }
 
-.updateStyle {
+.updateStyleNotReady {
+    width: 150px;
+    border: 0px;
+    border-radius: 3px;
+    padding: 0 25px;
+    height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: hsl(360, 83%, 80%);
+    color: white;
+    cursor: not-allowed;
+}
+
+.updateStyleReady {
     width: 150px;
     border: 0px;
     border-radius: 3px;
@@ -42,6 +61,7 @@ ul.stock-list li {
     background-color: #f05a5b;
     color: white;
     cursor: pointer;
+    transition: 0.5s;
 }
 
 .buyStyle {
@@ -55,6 +75,7 @@ ul.stock-list li {
     background-color: #f05a5b;
     color: white;
     cursor: pointer;
+    transition: 0.5s;
 }
 
 .sellStyle {
@@ -69,6 +90,7 @@ ul.stock-list li {
     background-color: white;
     color: #f05a5b;
     cursor: pointer;
+    transition: 0.5s;
 }
 
 .buyStyle:hover {
@@ -81,17 +103,50 @@ ul.stock-list li {
     border: solid 1px #fd0404; 
 }
 
-.updateStyle img {
+.updateButton img {
     width: 10px;
     margin-right: 5px;
 }
 
-.updateStyle:hover {
+.updateStyleReady:hover {
     background-color: #ca1717;
 }
+
 p.warning {
     font-size: 22px;
     color: #555;
     margin-top: 50px;
     text-align: center;
+}
+
+.timeElapsed {
+    font-family: AlarmClock;
+    border: solid 1px black;
+    width: 100px;
+    margin-left: 5px;
+    font-size: 32px;
+    text-align: center;
+}
+
+
+.swingStyle {
+    margin-right: 20px;
+    width: 120px;
+    border: 0px;
+    padding: 0 20px;
+    height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: solid 2px #f05a5b;
+    background-color: rgba(255, 255, 255, 0.01);
+    color: #f05a5b;
+    cursor: pointer;
+    transition: 0.8s;
+}
+
+.swingStyle:hover {
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(240,90,91,1) 35%, rgba(255,255,255,1) 100%);
+    color: rgb(255, 255, 255);
+    border-bottom: 0;
 }

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import api from '../../services/api';
 
 export default function Buy({ history }) {
-    const user_id = localStorage.getItem('user');
+    const user_id = localStorage.getItem('dwalletToken');
 
     const [amount, setAmount] = useState(0);
     const [price, setPrice] = useState(0);
@@ -14,7 +14,7 @@ export default function Buy({ history }) {
 
         const response = await api.post('/sell', {
             name: name.toUpperCase(), amount: parseInt(amount), price: Number(price)
-        }, { headers: { user_id } })
+        }, { headers: { authorization: 'Bearer ' + user_id } })
 
         if (response.data.error) {
             alert(response.data.error);
@@ -25,12 +25,17 @@ export default function Buy({ history }) {
         }
     }
 
+    function handleBack() {
+        history.push('/profile');
+    }
+
     return (
         <div className="containerBuy">
         <div className='logo'>D-Wallet</div>
 
             <div className="content">
-                <p>Insira as informações acerca de sua <strong>venda</strong></p>
+                <button onClick={handleBack} className = "backStyle">Voltar</button>
+                <p style= { {marginTop: 20} }>Insira as informações acerca de sua <strong>venda</strong></p>
 
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="name">Nome da ação:</label>
